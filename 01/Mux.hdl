@@ -15,6 +15,10 @@ CHIP Mux {
 
     PARTS:
     // Put your code here:
+    
+    // Using the truth table, I came up with the following equation:
+    // OUT = (A and ~sel) or (B and sel)
+    
     Not(in=sel, out=notsel);
     And(a=a, b=notsel, out=anda);
     And(a=b, b=sel, out=andb);
