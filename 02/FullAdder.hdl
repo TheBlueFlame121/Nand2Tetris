@@ -1,0 +1,28 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/FullAdder.hdl
+
+/**
+ * Computes the sum of three bits.
+ */
+
+CHIP FullAdder {
+    IN a, b, c;  // 1-bit inputs
+    OUT sum,     // Right bit of a + b + c
+        carry;   // Left bit of a + b + c
+
+    PARTS:
+    // Put you code here:
+
+    // From the truth table, the sum is a 3 way Xor, so I took Xor of a & b, then Xor'd it with c
+    Xor(a=a, b=b, out=tempsum);
+    Xor(a=tempsum, b=c, out=sum);
+
+    // The carry column looks to be a 'atleast 2'. The easiest way to do this would be to pairwise And them and then Or3Way the results.
+    And(a=a, b=b, out=tempa);
+    And(a=b, b=c, out=tempb);
+    And(a=c, b=a, out=tempc);
+    Or(a=tempa, b=tempb, out=out1);
+    Or(a=tempc, b=out1, out=carry);
+}
