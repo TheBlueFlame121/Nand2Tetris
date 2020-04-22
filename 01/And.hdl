@@ -15,6 +15,10 @@ CHIP And {
 
     PARTS:
     // Put your code here:
+    
+    //Nand gate
     Nand(a=a, b=b, out=temp);
+    
+    //The output of the Nand gate is then passed through a Not gate
     Nand(a=temp, b=temp, out=out);
 }
