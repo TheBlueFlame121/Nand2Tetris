@@ -14,7 +14,7 @@ CHIP Or16 {
 
     PARTS:
     // Put your code here:
-    // Or for all 16 bita
+    // Or for all 16 bits
     
     Nand(a=a[0], b=a[0], out=nota0);
     Nand(a=b[0], b=b[0], out=notb0);
