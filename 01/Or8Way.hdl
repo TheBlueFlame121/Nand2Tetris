@@ -14,6 +14,9 @@ CHIP Or8Way {
 
     PARTS:
     // Put your code here:
+    // This would've been much much easier had I realised and used the Or gate I made, but incase you need it from only Nande gates, here it is!
+    
+    // Taking not of each input
     Nand(a=in[0], b=in[0], out=notin0);
     Nand(a=in[1], b=in[1], out=notin1);
     Nand(a=in[2], b=in[2], out=notin2);
@@ -22,6 +25,8 @@ CHIP Or8Way {
     Nand(a=in[5], b=in[5], out=notin5);
     Nand(a=in[6], b=in[6], out=notin6);
     Nand(a=in[7], b=in[7], out=notin7);
+    
+    // Taking Or of two pins at a time
     Nand(a=notin0, b=notin1, out=temp1);
     Nand(a=nottemp1, b=notin2, out=temp2);
     Nand(a=nottemp2, b=notin3, out=temp3);
@@ -29,6 +34,8 @@ CHIP Or8Way {
     Nand(a=nottemp4, b=notin5, out=temp5);
     Nand(a=nottemp5, b=notin6, out=temp6);
     Nand(a=nottemp6, b=notin7, out=out);
+    
+    // Inverting each of the temporary pins
     Nand(a=temp1, b=temp1, out=nottemp1);
     Nand(a=temp2, b=temp2, out=nottemp2);
     Nand(a=temp3, b=temp3, out=nottemp3);
