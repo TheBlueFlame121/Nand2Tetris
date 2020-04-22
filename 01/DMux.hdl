@@ -15,9 +15,19 @@ CHIP DMux {
 
     PARTS:
     // Put your code here:
+    
+    // Using the truth table for Dmux, I came up with the following equation:
+    // B = in and sel
+    // A = in and not(sel)
+    
+    // And gate for pin B
     Nand(a=in, b=sel, out=notb);
     Nand(a=notb, b=notb, out=b);
+    
+    // Not gate for sel
     Nand(a=sel, b=sel, out=notsel);
+    
+    // And gate for pin A
     Nand(a=in, b=notsel, out=nota);
     Nand(a=nota, b=nota, out=a);
 }
