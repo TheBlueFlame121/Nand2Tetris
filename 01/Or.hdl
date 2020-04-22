@@ -15,6 +15,11 @@ CHIP Or {
 
     PARTS:
     // Put your code here:
+    
+    // Or can be derived using de-morgan's equations
+    // A or B = (~A) and (~B) , this can be further written as:
+    // A or B = ~(~A Nand ~B)
+    
     Nand(a=a, b=a, out=nota);
     Nand(a=b, b=b, out=notb);
     Nand(a=nota, b=notb, out=out);
